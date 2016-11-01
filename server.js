@@ -37,22 +37,25 @@ io.on('connection', function (socket) {
   
   socket.on('led', function (data) {
     console.log(data);
-    if (data == '1'){
+    led1.writeSync(0);
+    led2.writeSync(0);
+    switch (data) {
+        case "1":
           led1.writeSync(1);
           socket.emit('ledstatus', '1');
- 
-    }else if (data == '1-0'){
-          led1.writeSync(0);
-          socket.emit('ledstatus', '1-0');
-    }else if (data == '2'){
+            break;
+        case "2":
           led2.writeSync(1);
           socket.emit('ledstatus', '2');
-    }else if (data == '2-0'){
-          led2.writeSync(0);
-          socket.emit('ledstatus', '2-0');
-    }
+            break;
+           }
+      
+      
+      
+     
     
   });
     
 });
  
+
