@@ -9,9 +9,9 @@ app.listen(8001, function(){
 
 // button is attaced to pin 18, led to 17
 var GPIO = require('onoff').Gpio;
-var led1 = new GPIO(14, 'out');
-var led2 = new GPIO(15, 'out');
-var button = new GPIO(18, 'in', 'both');
+var led1 = new GPIO(2, 'out');
+var led2 = new GPIO(3, 'out');
+
 
 //Init LED to off
 led1.writeSync(0);
