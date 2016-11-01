@@ -1,0 +1,67 @@
+<html>
+<style type="text/css">
+
+    .buton {
+    background-color: red; 
+    border: none;
+    color: white;
+    width: 260px;
+    height: 240px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 56px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+   
+    
+</style>
+    
+    
+<head>
+    <script src = "/socket.io/socket.io.js" > </script>
+    <script type=text/javascript src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+        var socket = io.connect();
+            socket.on('ledstatus', function (data) {
+                console.log(data);
+                switch (data) {
+                    case "1":
+                        $('#myButton1').css("background-color","#4CAF50");
+                        $('#myButton2').css("background-color","red");
+                    break;
+                    case "2":
+                        $('#myButton2').css("background-color","#4CAF50");
+                        $('#myButton1').css("background-color","red");
+                    break;
+                        
+                }
+                
+                
+            });
+    </script>
+    <script>
+    function led1On(){
+      socket.emit('led', '1');
+       
+    }
+    
+    function led2On(){
+      socket.emit('led', '2');
+       
+    }
+    
+        
+ 
+        
+    </script>
+</head> 
+ 
+<body>
+    <input class="buton" type="button"  name="on" id="myButton1" value="-- 1 --" onClick="led1On(); led2Off();">
+    <input class="buton" type="button"  name="on" id="myButton2" value="-- 2 --" onClick="led2On(); led1Off();">
+    
+<!--    <input class="buttonkapali" type="button" name="off" id="offButton" value="off" onClick="ledOff();">-->
+</body>
+</html>
