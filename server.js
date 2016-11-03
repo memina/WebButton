@@ -17,6 +17,7 @@ for (var i = 0; i < ledcount; i++) {
 //Init LED to off
 for (var i = 0; i < ledcount; i++) {
   leds[i].writeSync(0);
+  leds[i].unexport();
 }
 
 
