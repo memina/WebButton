@@ -2,7 +2,7 @@ var app = require('http').createServer(handler);
 var io = require('socket.io').listen(app);
 var fs = require('fs');
 var sock;
-var ledcount = 2;
+var ledcount = 23;
 
 app.listen(8001, function(){
  console.log('listening on *.8001');
