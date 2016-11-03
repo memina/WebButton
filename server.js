@@ -21,7 +21,7 @@ for (var i = 0; i < ledcount; i++) {
 
 
 function handler (req, res) {
-  fs.readFile('/root/Node-Button/index.html',
+  fs.readFile('/home/pi/WebButton/index.html',
   function (err, data) {
     if (err) {
       res.writeHead(500);
